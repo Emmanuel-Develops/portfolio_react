@@ -40,7 +40,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="flex gap-x-4 font-bold text-center items-center justify-center mt-20 pb-5">
-                    Contact me:
+                    <span className="dark:text-blue-400">Contact me:</span>
                     <a href='https://github.com/Emmanuel-Develops' target='_blank' rel="noreferrer">
                         <i className="fa-brands fa-github text-xl text-purple-400 hover:text-purple-200"></i>
                     </a>
