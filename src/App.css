@@ -41,8 +41,7 @@
   100% {
     /* transform: translateX(100%); */
     transform: rotate(360deg);
-    left: 100%;
-    display: none;
+    left: 95%;
   }
 }
 @keyframes roll {
@@ -56,11 +55,11 @@
 
 
 .bg-overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(to bottom, rgba(81, 117, 131, 0.3) 0%, rgba(0,0,0,0.9) 100%);
   backdrop-filter: blur(2px);
 }
 
 .blur-filter {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); */
   /* backdrop-filter: blur(4px); */
 }

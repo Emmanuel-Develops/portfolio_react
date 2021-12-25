@@ -4,26 +4,16 @@ import Card from "../components/Card"
 import 'animate.css'
 // import abstractBlue from '../resources/images/abstract_blue.png'
 import {getProjects} from "../store/data"
-import veto from '../resources/images/projects/veto.jpg'
 
 
 const Home = () => {
 
     const [projects, setProjects] = useState([])
+    const [gearVisible, setGearVisible] = useState(true)
 
     useEffect(() => {
         setProjects(getProjects)      
     }, [])
-
-    // const project = {
-    //     id: 0,
-    //     imgURL: '../resources/images/projects/veto.jpg',
-    //     title: 'Veto - a dApp for voting', 
-    //     description: 'Veto is a decentralised app built on the celo blockchain. Its primary objective is to provide a platform to vote on various matters. Users can create their projects to vote on and create propositions that can be voted for regarding the project.',
-    //     ghLink: 'https://github.com/Emmanuel-Develops/voting-celo-blockchain-app',
-    //     liveLink: 'https://vetovote.netlify.app/',
-    //     isCompleted: false
-    // }
 
     return (
         <div className="bg-cover bg-slate-200 dark:bg-slate-900 min-h-screen">
@@ -33,7 +23,7 @@ const Home = () => {
                     <Spinner/>
                 </div>
                 <div className="relative w-full py-4">
-                    <div className="gear relative w-fit text-xl md:text-3xl -left-2">⚙️</div>
+                    <div className={`gear relative w-fit text-xl md:text-3xl -left-2 ${!gearVisible && "invisible"}` } onAnimationEnd={() => setGearVisible(false)}>⚙️</div>
                     <div className="underline h-2 rounded-md bg-violet-400 -left-2 "></div>
                 </div>
                 <div className="text-center text-slate-400 text-sm md:text-base font-osans font-medium ">
@@ -43,12 +33,26 @@ const Home = () => {
                     <h2 className="font-medium text-2xl text-blue-500 py-4">Feature Projects</h2>
                     <div className="">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {projects.map((project) => (
+                            {projects && projects.map((project) => (
                                 <Card key={project.id} project={project} />
                             ))}
-                            {/* <Card project={project}/> */}
                         </div>
                     </div>
+                </div>
+                <div className="flex gap-x-4 font-bold text-center items-center justify-center mt-20 pb-5">
+                    Contact me:
+                    <a href='https://github.com/Emmanuel-Develops' target='_blank' rel="noreferrer">
+                        <i className="fa-brands fa-github text-xl text-purple-400 hover:text-purple-200"></i>
+                    </a>
+                    <a href='https://www.linkedin.com/in/emmanuel-itakpe' target='_blank' rel="noreferrer">
+                        <i className="fa-brands fa-linkedin-in text-xl text-purple-400 hover:text-purple-200"></i>
+                    </a>
+                    <a href='mailto:itakpeemma@gmail.com' target='_blank' rel="noreferrer">
+                        <i className="fa-solid fa-envelope text-xl text-purple-400 hover:text-purple-200"></i>
+                    </a>
+                    <a href='https://twitter.com/iPreferNoel' target='_blank' rel="noreferrer">
+                        <i className="fa-brands fa-twitter text-xl text-purple-400 hover:text-purple-200"></i>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,3 @@
-import jsGame from '../resources/images/projects/jsGame.jpg'
 
 const Card = ({project}) => {
     return (
@@ -10,11 +9,11 @@ const Card = ({project}) => {
                     <h1 className=' font-bold text-purple-400'>{project.title}</h1>
                     <p className='clamp-text text-slate-400 leading-none line-clamp-2'>{project.description}</p>
                     <div className='flex items-center gap-x-2'>
-                        <a href={project.ghLink} target='_blank'>
+                        <a href={project.ghLink} target='_blank' rel="noreferrer">
                             <i className="fa-brands fa-github text-xl text-purple-400 hover:text-purple-200"></i>
                         </a>
                         {project.liveLink && (
-                            <a href={project.liveLink} target='_blank'>
+                            <a href={project.liveLink} target='_blank' rel="noreferrer">
                                 <i className="fa-solid fa-link text-xl text-purple-400 hover:text-purple-200"></i>
                             </a>
                         )}
