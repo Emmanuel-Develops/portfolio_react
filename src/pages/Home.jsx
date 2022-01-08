@@ -4,20 +4,37 @@ import Card from "../components/Card"
 import 'animate.css'
 // import abstractBlue from '../resources/images/abstract_blue.png'
 import {getProjects} from "../store/data"
+import Modal from "../components/Modal"
 
 
 const Home = () => {
-
-    const [projects, setProjects] = useState([])
+    const projectData = getProjects()
+    const [projects, setProjects] = useState(projectData)
+    const [selectedProject, setSelectedProject] = useState(projectData[0])
+    const [isModalVisible, setIsModalVisible] = useState(false)
     const [gearVisible, setGearVisible] = useState(true)
 
+    const handleModal = (id) => {
+        setSelectedProject(projects[id])
+        setIsModalVisible(true)
+    }
+
     useEffect(() => {
-        setProjects(getProjects)      
-    }, [])
+
+        if (isModalVisible) {
+            document.body.style.display = 'block'
+            document.body.style.overflow = 'hidden'
+        }
+        if (!isModalVisible) {
+            document.body.style.display = ''
+            document.body.style.overflow = 'visible'
+        }
+    }, [isModalVisible])
 
     return (
-        <div className="bg-cover bg-slate-200 dark:bg-slate-900 min-h-screen">
-            <div className="max-w-6xl mx-auto px-2 md:px-4">
+        <div className={`bg-cover bg-slate-200 dark:bg-slate-900 min-h-screen ${isModalVisible && ''}`}>
+            <Modal project={selectedProject} visibility={isModalVisible} setVisibility={setIsModalVisible}/>
+            <div className={`max-w-6xl mx-auto px-2 md:px-4 ${isModalVisible && 'overflow-hidden'}`}>
                 <div className="flex justify-center items-center gap-x-8 min-h-[80vh]">
                     <h1 className="font-bold text-3xl lg:text-5xl capitalize text-blue-500">In development</h1>
                     <Spinner/>
@@ -34,7 +51,7 @@ const Home = () => {
                     <div className="">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                             {projects && projects.map((project) => (
-                                <Card key={project.id} project={project} />
+                                <Card key={project.id} project={project} handleClick={handleModal}/>
                             ))}
                         </div>
                     </div>

@@ -1,9 +1,11 @@
 
-const Card = ({project}) => {
+const Card = ({project, handleClick}) => {
     return (
-        <div className='relative mx-auto w-full aspect-video bg-sky-300 rounded-xl overflow-hidden'>
+        <div className='relative mx-auto w-full aspect-video bg-sky-300 rounded-xl overflow-hidden cursor-pointer'
+            onClick={() => handleClick(project.id)}
+        >
             <div className='absolute w-full h-full bg-overlay'></div>
-            <div className=' bg-cover  rounded-xl'>
+            <div className='bg-cover rounded-xl'>
                 <img className='w-full h-full bg-contain' style={{objectFit: 'cover'}} src={project.imgURL} alt="" />
                 <div className='absolute bottom-0 flex flex-col gap-y-3 w-full text-left py-2 px-2 blur-filter'>
                     <h1 className=' font-bold text-purple-400'>{project.title}</h1>
