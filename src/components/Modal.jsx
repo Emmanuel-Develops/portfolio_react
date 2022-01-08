@@ -9,12 +9,12 @@ const Modal = ({project, visibility, setVisibility}) => {
                 
             >
                 <div 
-                    className='absolute w-full h-full bg-slate-700 bg-opacity-10 dark:bg-gray-900 dark:bg-opacity-90'
+                    className='absolute w-full h-full bg-neutral-900 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90'
                     onClick={() => setVisibility(false)}
                 ></div>
-                <div className='w-[80%] max-h-[800px] max-w-[1024px] z-10 dark:bg-slate-800 rounded-lg shadow-2xl shadow-purple-400/25 overflow-y-scroll remove-scroll-bar'>
+                <div className='w-[80%] max-h-[800px] max-w-[1024px] z-10 bg-slate-200 dark:bg-slate-800 rounded-lg shadow-2xl shadow-purple-400/25 overflow-y-scroll remove-scroll-bar'>
                     
-                    <div className="w-full bg-slate-700 dark:bg-gray-600 rounded-t-lg overflow-hidden" >
+                    <div className="w-ful rounded-t-lg overflow-hidden" >
                         <img className='w-full aspect-video' style={{objectFit: 'cover'}} src={project.imgURL} alt="" />
                     </div>
                     <div className='flex flex-col h-full gap-y-3 w-full text-left py-2 px-2 blur-filter'>
@@ -31,7 +31,7 @@ const Modal = ({project, visibility, setVisibility}) => {
                                     <i className="fa-solid fa-link text-xl text-purple-400 hover:text-purple-200"></i>
                                 </a>
                             )}
-                            <p className={`${project.isCompleted ? 'bg-purple-400' : 'bg-amber-400' } text-black px-2 py-1 ml-auto rounded-b-lg`}>{project.isCompleted ? 'completed' : 'ongoing'}</p>
+                            <p className={`${project.isCompleted ? 'bg-purple-400' : 'bg-amber-400' } text-black text-right text-lg font-medium px-2 py-1 ml-auto rounded-b-lg`}>{project.isCompleted ? 'completed' : 'ongoing'}</p>
                         </div>
                     </div>
                 </div>
